@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-use crate::Disjunction;
+use super::Disjunction;
 
 /// A disjunctions of [Principals](Principal).
 #[derive(PartialEq, Eq, Clone, Debug)]
