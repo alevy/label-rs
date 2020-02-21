@@ -5,6 +5,9 @@ extern crate quickcheck;
 pub mod dclabel;
 pub mod twolevel;
 
+#[cfg(test)]
+mod qc_tests;
+
 /// A `Label` behaves as a [lattice](https://en.wikipedia.org/wiki/Lattice_(order)).
 ///
 /// It defines a partially ordered set where each pair of values has a `join` (or least upper
