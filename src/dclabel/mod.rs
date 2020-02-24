@@ -141,8 +141,6 @@ mod tests {
             let lmeet = l1.meet(&l2);
             assert_eq!(lmeet, l2);
             assert_eq!(lmeet, l2.meet(&l1));
-            //assert!(l1.can_flow_to(&ljoin), format!("{:?} <= {:?}", l1, ljoin));
-            //assert!(l2.can_flow_to(&ljoin), format!("{:?} <= {:?}", l2, ljoin));
         }
     }
 }
