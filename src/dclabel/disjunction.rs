@@ -64,14 +64,11 @@ impl<I: Into<String>> From<I> for Disjunction {
     }
 }
 
-impl std::ops::BitOr for Disjunction {
-    type Output = Self;
+impl std::ops::BitOr for &Disjunction {
+    type Output = Disjunction;
 
-    fn bitor(mut self, rhs: Self) -> Self {
-        for r in rhs.0.iter() {
-            self.0.insert(r.clone());
-        }
-        self
+    fn bitor(self, rhs: Self) -> Disjunction {
+        Disjunction(&self.0 | &rhs.0)
     }
 }
 
@@ -172,7 +169,7 @@ mod test {
         let d0 = Disjunction::mk_false() | "0";
         let d1 = Disjunction::mk_false();
 
-        assert_eq!(d1.clone() | d0.clone(), d0);
+        assert_eq!(&d1 | &d0, d0);
     }
 
     quickcheck! {
@@ -219,7 +216,9 @@ mod test {
         }
 
         fn or_is_symmetric(c1: Disjunction, c2: Disjunction) -> bool {
-            c1.clone() | c2.clone() == c2 | c1
+            let c1 = &c1;
+            let c2 = &c2;
+            c1 | c2 == c2 | c1
         }
     }
 }
