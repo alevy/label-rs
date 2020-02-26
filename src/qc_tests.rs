@@ -16,7 +16,7 @@ mod dcl {
 
             lmeet == l2.meet(&l1) &&
                 lmeet.can_flow_to(&l1) &&
-                lmeet.can_flow_to(&lmeet)
+                lmeet.can_flow_to(&l2)
         }
     }
 }
