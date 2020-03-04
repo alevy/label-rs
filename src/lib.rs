@@ -2,6 +2,10 @@
 #[macro_use]
 extern crate quickcheck;
 
+pub mod labeled;
+pub mod privilege;
+pub mod runtime;
+
 pub mod dclabel;
 pub mod twolevel;
 
